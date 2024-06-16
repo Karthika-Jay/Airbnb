@@ -71,5 +71,8 @@ Approach:
     Dashboard Creation: Build a dashboard in Power BI to summarize findings.
 
 Power bi: https://app.powerbi.com/links/ZcBdgpGAqK?ctid=dab941a8-190f-4dc7-b00a-23c68c51155e&pbi_source=linkShare
+![image](https://github.com/Karthika-Jay/Airbnb/assets/30020128/4ed459c8-d7e1-48d3-8b08-40efd48283ee)
+
+
 
 This is the comprehensive approach to analyzing Airbnb data using MongoDB Atlas, with a focus on leveraging Python, Streamlit for web interactivity, and Power BI or Tableau for dashboarding. It aims to derive actionable insights for stakeholders in the travel, property management, and tourism industries.
