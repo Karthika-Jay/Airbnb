@@ -9,8 +9,6 @@ import plotly.graph_objects as go
 import seaborn as sns
 import matplotlib.pyplot as plt
 from PIL import Image
-import folium
-from folium.plugins import MarkerCluster
 
 
 # Streamlit part
@@ -84,12 +82,12 @@ if select == "Introduction Page📌":
     st.write("")
     # Define the URLs for the buttons
     urls = {
-        "⛪AIRBNB HOME": "https://www.airbnb.co.in/host/homes",
-        "🏩AIRBNB STAYS": "https://www.airbnb.co.in/?category_tag=Tag%3A8851",
-        "📱ONLINE EXPERIENCES": "https://www.airbnb.co.in/s/experiences/online",
-        "🔍BROWSE ICONS": "https://www.airbnb.co.in/release",
-        "📞HELP CENTRE": "https://www.airbnb.co.in/help",
-        "☎ CONTACT": "https://news.airbnb.com/contact/"
+        "⛪AIRBNB HOME":"https://www.airbnb.co.in/host/homes",
+        "🏩AIRBNB STAYS":"https://www.airbnb.co.in/?category_tag=Tag%3A8851",
+        "📱ONLINE EXPERIENCES":"https://www.airbnb.co.in/s/experiences/online",
+        "🔍BROWSE ICONS":"https://www.airbnb.co.in/release",
+        "📞HELP CENTRE":"https://www.airbnb.co.in/help",
+        "☎ CONTACT":"https://news.airbnb.com/contact/"
     }
 
 
@@ -97,8 +95,9 @@ if select == "Introduction Page📌":
     button_cols = st.columns(6)
     for i, (label, url) in enumerate(urls.items()):
         with button_cols[i]:
-            if st.button(label):
-                st.markdown(f"[{label}]({url})", unsafe_allow_html=True)
+            if label.strip():
+                if st.button(label):
+                    st.markdown(f"[{label}]({url})", unsafe_allow_html=True)
     st.image("C:/Users/lenovo/Desktop/try/airbnb/icon.jpg", use_column_width=True)
     st.header("**AIRBNB**")
     st.image("C:/Users/lenovo/Desktop/try/airbnb/head.jpg")
@@ -375,21 +374,7 @@ if select == "Airbnb Analysis 📈":
 
         st.dataframe(df_val_sel)
 
-        # checking the correlation
-
-        df_val_sel_corr= df_val_sel.drop(columns=["listing_url","name", "property_type",                 
-                                            "room_type", "bed_type","cancellation_policy",
-                                            "images","host_url","host_name", "host_location",                   
-                                            "host_response_time", "host_thumbnail_url",            
-                                            "host_response_rate","host_is_superhost","host_has_profile_pic" ,         
-                                            "host_picture_url","host_neighbourhood",
-                                            "host_identity_verified","host_verifications",
-                                            "street", "suburb", "government_area", "market",                        
-                                            "country", "country_code","location_type","is_location_exact",
-                                            "amenities"]).corr()
         
-        st.dataframe(df_val_sel_corr)
-
         df_val_sel_gr= pd.DataFrame(df_val_sel.groupby("accommodates")[["cleaning_fee","bedrooms","beds","extra_people"]].sum())
         df_val_sel_gr.reset_index(inplace= True)
 
